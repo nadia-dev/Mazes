@@ -92,6 +92,25 @@ class GridConstructor {
             }
         }
     }
+    
+    func description() -> String {
+        var output = "+" +  String(repeating: "---+", count: column_count) + "\n"
+        self.forEachRow { (row) in
+            var top = "|"
+            var bottom = "+"
+            for cell in row {
+                let body = "   " // 3 spaces
+                let east_boundry = cell.isLinked(cell: cell.east) ? " " : "|"
+                top += body + east_boundry
+                let south_boundry = cell.isLinked(cell: cell.south) ? "   " : "---"
+                let corner = "+"
+                bottom += south_boundry + corner
+            }
+            output += top + "\n"
+            output += bottom + "\n"
+        }
+        return output
+    }
 
 }
 

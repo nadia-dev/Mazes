@@ -29,17 +29,21 @@ class Cell {
     
     /** Connect current cell with cell parameter **/
     func link(cell: Cell, bidi: Bool = true) {
-        links[cell.id] = true
-        if bidi {
-            cell.link(cell: self, bidi: false)
+        if !linkedCells().contains(cell.id) {
+            links[cell.id] = true
+            if bidi {
+                cell.link(cell: self, bidi: false)
+            }
         }
     }
     
     /** Disconnet current cell and parameter cell **/
     func unlink(cell: Cell, bidi: Bool = true) {
-        links.removeValue(forKey: cell.id)
-        if bidi {
-            cell.unlink(cell: self, bidi: false)
+        if linkedCells().contains(cell.id) {
+            links.removeValue(forKey: cell.id)
+            if bidi {
+                cell.unlink(cell: self, bidi: false)
+            }
         }
     }
     
@@ -49,8 +53,12 @@ class Cell {
     }
     
     /** Is current cell linked to another given cell **/
-    func isLinked(cell: Cell) -> Bool {
-        return linkedCells().contains(cell.id)
+    func isLinked(cell: Cell?) -> Bool {
+        if let cell = cell {
+            return linkedCells().contains(cell.id)
+        } else {
+            return false
+        }
     }
     
     /** Query the list of adjoined cells **/

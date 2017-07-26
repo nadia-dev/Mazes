@@ -9,9 +9,9 @@
 import Foundation
 
 
-class BinarySearch {
+class BinaryTree {
     
-    func on(gridConstructor: GridConstructor) -> [[Cell]]? {
+    class func on(gridConstructor: GridConstructor) -> GridConstructor {
         gridConstructor.forEachCell { (cell) in
             var neighbors: [Cell] = []
             if let north = cell.north {
@@ -25,6 +25,6 @@ class BinarySearch {
                 cell.link(cell: neighbor)
             }
         }
-        return gridConstructor.currentGrid()
+        return gridConstructor
     }
 }

@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let gridConstructor = GridConstructor(withRows: 4, columns: 4)
-        let modifiedGC = BinaryTree.on(gridConstructor: gridConstructor)
+        let modifiedGC = SideWinder.on(gridConstructor: gridConstructor)
         print(modifiedGC.description())
     }
 

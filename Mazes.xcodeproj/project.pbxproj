@@ -22,6 +22,7 @@
 		05CBFE141F284645003EC66B /* BinaryTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CBFE131F284645003EC66B /* BinaryTree.swift */; };
 		05CBFE171F285FD8003EC66B /* BinaryTreeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CBFE161F285FD8003EC66B /* BinaryTreeTests.swift */; };
 		05CBFE191F2860BA003EC66B /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CBFE181F2860BA003EC66B /* ArrayExtensions.swift */; };
+		05CBFE1B1F287769003EC66B /* Sidewinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CBFE1A1F287769003EC66B /* Sidewinder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		05CBFE131F284645003EC66B /* BinaryTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryTree.swift; sourceTree = "<group>"; };
 		05CBFE161F285FD8003EC66B /* BinaryTreeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryTreeTests.swift; sourceTree = "<group>"; };
 		05CBFE181F2860BA003EC66B /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
+		05CBFE1A1F287769003EC66B /* Sidewinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sidewinder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				05CBFE131F284645003EC66B /* BinaryTree.swift */,
+				05CBFE1A1F287769003EC66B /* Sidewinder.swift */,
 			);
 			name = Algorithms;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				05CBFDE01F26F7AD003EC66B /* AppDelegate.swift in Sources */,
 				05CBFE011F26FA13003EC66B /* GridConstructor.swift in Sources */,
 				05CBFE191F2860BA003EC66B /* ArrayExtensions.swift in Sources */,
+				05CBFE1B1F287769003EC66B /* Sidewinder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,7 @@
 import XCTest
 @testable import Mazes
 
-class BinaryTreeTests: XCTestCase {
+class AlgorithmsTests: XCTestCase {
     
     var gridConstructor: GridConstructor!
     var rows = 3
@@ -27,11 +27,11 @@ class BinaryTreeTests: XCTestCase {
     
     func testOn() {
         // "on" has random in it, so we can only test if the grid is the same as it was on a large scale
-        if BinaryTree.on(gridConstructor: gridConstructor) != nil {
-            XCTAssertEqual(gridConstructor.size(), rows*columns)
-        } else {
-            XCTFail("No grid found in BinarySearchTests")
-        }
+        BinaryTree.on(gridConstructor: gridConstructor)
+        XCTAssertEqual(gridConstructor.size(), rows*columns)
+        
+        SideWinder.on(gridConstructor: gridConstructor)
+        XCTAssertEqual(gridConstructor.size(), rows*columns)
     }
     
 }

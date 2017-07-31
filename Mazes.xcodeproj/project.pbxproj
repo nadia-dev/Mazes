@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		053DBECD1F2F425700988200 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053DBECC1F2F425700988200 /* UIViewExtensions.swift */; };
 		05CBFDE01F26F7AD003EC66B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CBFDDF1F26F7AD003EC66B /* AppDelegate.swift */; };
 		05CBFDE21F26F7AD003EC66B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CBFDE11F26F7AD003EC66B /* ViewController.swift */; };
 		05CBFDE51F26F7AD003EC66B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05CBFDE31F26F7AD003EC66B /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 		05CBFE171F285FD8003EC66B /* AlgorithmsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CBFE161F285FD8003EC66B /* AlgorithmsTests.swift */; };
 		05CBFE191F2860BA003EC66B /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CBFE181F2860BA003EC66B /* ArrayExtensions.swift */; };
 		05CBFE1B1F287769003EC66B /* Sidewinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CBFE1A1F287769003EC66B /* Sidewinder.swift */; };
+		05D5AAAF1F2C5CCD00456417 /* MazeContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D5AAAE1F2C5CCD00456417 /* MazeContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		053DBECC1F2F425700988200 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		05CBFDDC1F26F7AD003EC66B /* Mazes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mazes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05CBFDDF1F26F7AD003EC66B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05CBFDE11F26F7AD003EC66B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +59,7 @@
 		05CBFE161F285FD8003EC66B /* AlgorithmsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlgorithmsTests.swift; sourceTree = "<group>"; };
 		05CBFE181F2860BA003EC66B /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		05CBFE1A1F287769003EC66B /* Sidewinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sidewinder.swift; sourceTree = "<group>"; };
+		05D5AAAE1F2C5CCD00456417 /* MazeContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MazeContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 		05CBFDDE1F26F7AD003EC66B /* Mazes */ = {
 			isa = PBXGroup;
 			children = (
+				05D5AAAD1F2C5CB800456417 /* Views */,
 				05CBFE121F2845FB003EC66B /* Algorithms */,
 				05CBFE091F2777CA003EC66B /* Utils */,
 				05CBFDFF1F26FA01003EC66B /* Model */,
@@ -145,6 +150,7 @@
 			children = (
 				05CBFE071F2777AF003EC66B /* Random.swift */,
 				05CBFE181F2860BA003EC66B /* ArrayExtensions.swift */,
+				053DBECC1F2F425700988200 /* UIViewExtensions.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -164,6 +170,14 @@
 				05CBFE161F285FD8003EC66B /* AlgorithmsTests.swift */,
 			);
 			name = AlgorithmTests;
+			sourceTree = "<group>";
+		};
+		05D5AAAD1F2C5CB800456417 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				05D5AAAE1F2C5CCD00456417 /* MazeContainer.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05D5AAAF1F2C5CCD00456417 /* MazeContainer.swift in Sources */,
 				05CBFE081F2777AF003EC66B /* Random.swift in Sources */,
 				05CBFDE21F26F7AD003EC66B /* ViewController.swift in Sources */,
 				05CBFE031F26FA1E003EC66B /* Cell.swift in Sources */,
@@ -280,6 +295,7 @@
 				05CBFE011F26FA13003EC66B /* GridConstructor.swift in Sources */,
 				05CBFE191F2860BA003EC66B /* ArrayExtensions.swift in Sources */,
 				05CBFE1B1F287769003EC66B /* Sidewinder.swift in Sources */,
+				053DBECD1F2F425700988200 /* UIViewExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

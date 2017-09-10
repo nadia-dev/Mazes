@@ -38,6 +38,19 @@ class GridConstructor {
         return row_count * column_count
     }
     
+    func cellWithId(id: Int) -> Cell? {
+        if let currentGrid = currentGrid() {
+            for row in currentGrid {
+                for cell in row {
+                    if cell.id == id {
+                        return cell
+                    }
+                }
+            }
+        }
+        return nil
+    }
+    
     /** Setup 2d array of Cell instances **/
     func prepateGrid() -> [[Cell]] {
         var grid = [[Cell]]()

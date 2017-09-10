@@ -8,7 +8,20 @@
 
 import UIKit
 
-class Cell {
+class Cell : Hashable {
+    
+    /// Returns a Boolean value indicating whether two values are equal.
+    ///
+    /// Equality is the inverse of inequality. For any values `a` and `b`,
+    /// `a == b` implies that `a != b` is `false`.
+    ///
+    /// - Parameters:
+    ///   - lhs: A value to compare.
+    ///   - rhs: Another value to compare.
+    static func ==(lhs: Cell, rhs: Cell) -> Bool {
+        return lhs === rhs
+    }
+
     
     var id: Int = -1
     var row: Int = -1
@@ -18,7 +31,12 @@ class Cell {
     var east: Cell?
     var west: Cell?
     
-    private var links: [Int:Bool] = [:]
+    var hashValue: Int { return ObjectIdentifier(self).hashValue }
+    
+    // FIXME: need to have cell object, id is not working with distances class
+    // TODO: implement custom hash class to map cell object to bool
+    
+    private var links: [Cell:Bool] = [:]
     
     convenience init(withRow row: Int, column: Int, id: Int) {
         self.init()
@@ -29,8 +47,8 @@ class Cell {
     
     /** Connect current cell with cell parameter **/
     func link(cell: Cell, bidi: Bool = true) {
-        if !linkedCells().contains(cell.id) {
-            links[cell.id] = true
+        if !linkedCells().contains(cell) {
+            links[cell] = true
             if bidi {
                 cell.link(cell: self, bidi: false)
             }
@@ -39,8 +57,8 @@ class Cell {
     
     /** Disconnet current cell and parameter cell **/
     func unlink(cell: Cell, bidi: Bool = true) {
-        if linkedCells().contains(cell.id) {
-            links.removeValue(forKey: cell.id)
+        if linkedCells().contains(cell) {
+            links.removeValue(forKey: cell)
             if bidi {
                 cell.unlink(cell: self, bidi: false)
             }
@@ -48,14 +66,14 @@ class Cell {
     }
     
     /** Query list of ids of cells connected to the current cell **/
-    func linkedCells() -> [Int] {
+    func linkedCells() -> [Cell] {
         return Array(links.keys)
     }
     
     /** Is current cell linked to another given cell **/
     func isLinked(cell: Cell?) -> Bool {
         if let cell = cell {
-            return linkedCells().contains(cell.id)
+            return linkedCells().contains(cell)
         } else {
             return false
         }
@@ -79,6 +97,25 @@ class Cell {
         return list
     }
  
+    /** implement Dijkstra's algorithm and return Distances instance containing the matrix of distances **/
+    func distances() -> Distances {
+        let distances = Distances(withRoot: self)
+        var frontier: [Cell] = [self]
+        while frontier.count > 0 {
+            var newFrontier: [Cell] = []
+            for cell in frontier {
+                for linked in cell.linkedCells() {
+                    if distances.getDistanceFromRootToCell(cell: linked) == -1 {
+                        let updatedDist = distances.getDistanceFromRootToCell(cell: self) + 1
+                        distances.setDistanceFromRootToCell(cell: linked, distance: updatedDist)
+                        newFrontier.append(linked)
+                    }
+                }
+            }
+            frontier = newFrontier
+        }
+        return distances
+    }
 
 }
 

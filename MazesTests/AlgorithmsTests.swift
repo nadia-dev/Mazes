@@ -27,10 +27,10 @@ class AlgorithmsTests: XCTestCase {
     
     func testOn() {
         // "on" has random in it, so we can only test if the grid is the same as it was on a large scale
-        BinaryTree.on(gridConstructor: gridConstructor)
+        _ = BinaryTree.on(gridConstructor: gridConstructor)
         XCTAssertEqual(gridConstructor.size(), rows*columns)
         
-        SideWinder.on(gridConstructor: gridConstructor)
+        _ = SideWinder.on(gridConstructor: gridConstructor)
         XCTAssertEqual(gridConstructor.size(), rows*columns)
     }
     

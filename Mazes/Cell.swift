@@ -106,7 +106,7 @@ class Cell : Hashable {
             for cell in frontier {
                 for linked in cell.linkedCells() {
                     if distances.getDistanceFromRootToCell(cell: linked) == -1 {
-                        let updatedDist = distances.getDistanceFromRootToCell(cell: self) + 1
+                        let updatedDist = distances.getDistanceFromRootToCell(cell: cell) + 1
                         distances.setDistanceFromRootToCell(cell: linked, distance: updatedDist)
                         newFrontier.append(linked)
                     }

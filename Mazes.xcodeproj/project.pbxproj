@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		053DBECD1F2F425700988200 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053DBECC1F2F425700988200 /* UIViewExtensions.swift */; };
+		056463301F7824C900C0DDB2 /* DistanceGridConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0564632F1F7824C900C0DDB2 /* DistanceGridConstructor.swift */; };
 		05A197351F430DAD007326D1 /* Distances.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A197341F430DAD007326D1 /* Distances.swift */; };
 		05CBFDE01F26F7AD003EC66B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CBFDDF1F26F7AD003EC66B /* AppDelegate.swift */; };
 		05CBFDE21F26F7AD003EC66B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CBFDE11F26F7AD003EC66B /* ViewController.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		053DBECC1F2F425700988200 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		0564632F1F7824C900C0DDB2 /* DistanceGridConstructor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceGridConstructor.swift; sourceTree = "<group>"; };
 		05A197341F430DAD007326D1 /* Distances.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Distances.swift; sourceTree = "<group>"; };
 		05CBFDDC1F26F7AD003EC66B /* Mazes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mazes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05CBFDDF1F26F7AD003EC66B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -131,8 +133,9 @@
 		05CBFDFF1F26FA01003EC66B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				05CBFE0E1F283E53003EC66B /* GridWrapper.swift */,
 				05CBFE001F26FA13003EC66B /* GridConstructor.swift */,
+				0564632F1F7824C900C0DDB2 /* DistanceGridConstructor.swift */,
+				05CBFE0E1F283E53003EC66B /* GridWrapper.swift */,
 				05CBFE021F26FA1E003EC66B /* Cell.swift */,
 			);
 			name = Model;
@@ -295,6 +298,7 @@
 				05CBFE0F1F283E53003EC66B /* GridWrapper.swift in Sources */,
 				05CBFE141F284645003EC66B /* BinaryTree.swift in Sources */,
 				05CBFDE01F26F7AD003EC66B /* AppDelegate.swift in Sources */,
+				056463301F7824C900C0DDB2 /* DistanceGridConstructor.swift in Sources */,
 				05CBFE011F26FA13003EC66B /* GridConstructor.swift in Sources */,
 				05A197351F430DAD007326D1 /* Distances.swift in Sources */,
 				05CBFE191F2860BA003EC66B /* ArrayExtensions.swift in Sources */,

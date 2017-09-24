@@ -18,12 +18,12 @@ class ViewController: UIViewController {
     private var columns: Int = 10
     private var offset: CGFloat = 20
     
-    private var gridConstructor: GridConstructor?
+    private var gridConstructor: DistanceGridConstructor?
     private var cellSide: CGFloat = 0.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        gridConstructor = GridConstructor(withRows: rows, columns: columns)
+        gridConstructor = DistanceGridConstructor(withRows: rows, columns: columns)
         runAlgorithm()
         configureMatrix()
         showCells()
@@ -33,9 +33,13 @@ class ViewController: UIViewController {
         guard let gridConstructor = gridConstructor else {
             return
         }
-        let updatedGridConstructor = SideWinder.on(gridConstructor: gridConstructor)
-        print(updatedGridConstructor.description())
-        self.gridConstructor = updatedGridConstructor
+        if let updatedGridConstructor = SideWinder.on(gridConstructor: gridConstructor) as? DistanceGridConstructor {
+            let start = updatedGridConstructor.gridWrapper?[0, 0]
+            let distances = start?.distances()
+            updatedGridConstructor.distances = distances
+            print(updatedGridConstructor.description())
+            self.gridConstructor = updatedGridConstructor
+        }
     }
     
     private func configureMatrix() {
@@ -46,7 +50,6 @@ class ViewController: UIViewController {
         mazeContainerHeight?.constant = cellSide * CGFloat(rows)
     }
     
-
     
     private func showCells() {
         guard let gridConstructor = gridConstructor else {

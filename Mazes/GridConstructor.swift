@@ -107,7 +107,7 @@ class GridConstructor {
     }
     
     func contentsOfCell(cell: Cell) -> String {
-        return " "
+        return "   "
     }
     
     func description() -> String {

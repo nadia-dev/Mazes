@@ -14,8 +14,11 @@ class DistanceGridConstructor: GridConstructor {
     
     override func contentsOfCell(cell: Cell) -> String {
         if let dist = distances?.getDistanceFromRootToCell(cell: cell) {
-            // TODO: should be in hex, to represent dists up to 35 using one char
-            return String(dist)
+            if dist != -1 {
+                return " \(String(format: "%x", dist)) " // in hex
+            } else {
+                return " X "
+            }
         } else {
             return super.contentsOfCell(cell: cell)
         }

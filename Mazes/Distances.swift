@@ -21,24 +21,12 @@ class Distances {
         cells[r.id] = 0
     }
     
-    func getDistanceFromRootToCellWithId(id: Int) -> Int {
-        if let dist = cells[id] {
-            return dist
-        } else {
-            return -1
-        }
-    }
-    
     func getDistanceFromRootToCell(cell: Cell) -> Int {
         if let dist = cells[cell.id] {
             return dist
         } else {
             return -1
         }
-    }
-    
-    func setDistanceFromRootToCellWithId(id: Int, distance: Int) {
-        cells[id] = distance
     }
     
     func setDistanceFromRootToCell(cell: Cell, distance: Int) {
@@ -48,6 +36,22 @@ class Distances {
     func allCells() -> [Int] {
         // return list of all cell ids
         return Array(cells.keys)
+    }
+    
+    func pathToGoal(goal: Cell) {
+        guard let root = root else {
+            return
+        }
+        let current = goal
+        let breadcrumbs = Distances(withRoot: root)
+        if let dist = cells[current.id] {
+            breadcrumbs.setDistanceFromRootToCell(cell: current, distance: dist)
+        }
+        
+        while current != root {
+            
+        }
+        
     }
     
 }

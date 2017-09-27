@@ -17,8 +17,8 @@ class Random {
         randomNumber(inRange: 50...100) - returns a number between 50 and 100 inclusive
      **/
     class func randomNumber<T : SignedInteger>(inRange range: ClosedRange<T> = 1...6) -> T {
-        let length = (range.upperBound - range.lowerBound + 1).toIntMax()
-        let value = arc4random().toIntMax() % length + range.lowerBound.toIntMax()
+        let length = Int64((range.upperBound - range.lowerBound + 1))
+        let value = Int64(arc4random()) % length + Int64(range.lowerBound)
         return T(value)
     }
 }

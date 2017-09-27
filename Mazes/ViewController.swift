@@ -14,8 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var mazeContainerHeight: NSLayoutConstraint?
     @IBOutlet weak var mazeContainerWidth: NSLayoutConstraint?
     
-    private var rows: Int = 10
-    private var columns: Int = 10
+    private var rows: Int = 5
+    private var columns: Int = 5
     private var offset: CGFloat = 20
     
     private var gridConstructor: DistanceGridConstructor?

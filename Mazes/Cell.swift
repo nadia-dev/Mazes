@@ -33,9 +33,6 @@ class Cell : Hashable {
     
     var hashValue: Int { return ObjectIdentifier(self).hashValue }
     
-    // FIXME: need to have cell object, id is not working with distances class
-    // TODO: implement custom hash class to map cell object to bool
-    
     private var links: [Cell:Bool] = [:]
     
     convenience init(withRow row: Int, column: Int, id: Int) {

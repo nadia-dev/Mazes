@@ -43,7 +43,7 @@ class ViewController: UIViewController {
             if let goalCell = updatedGridConstructor.currentGrid()?[rows-1][0] {
                 distances?.pathToGoal(goal: goalCell, completion: { (distancesToGoal) in
                     updatedGridConstructor.distances = distancesToGoal
-                    print("Path to southwest corner:")
+                    print("Path from northwest corner to southwest corner:")
                     print(updatedGridConstructor.description())
                 })
             }

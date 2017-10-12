@@ -38,20 +38,30 @@ class Distances {
         return Array(cells.keys)
     }
     
-    func pathToGoal(goal: Cell) {
+    /* Takes the cell and figures out the path to this cell from the original starting point */
+    func pathToGoal(goal: Cell, completion: (_ distances: Distances?) -> ()) {
         guard let root = root else {
+            completion(nil)
             return
         }
-        let current = goal
-        let breadcrumbs = Distances(withRoot: root)
+        var current = goal // we'll work backward from goal cell
+        let breadcrumbs = Distances(withRoot: root) // will only include cells that lie on the path
         if let dist = cells[current.id] {
             breadcrumbs.setDistanceFromRootToCell(cell: current, distance: dist)
         }
         
         while current != root {
-            
+            for neighbor in current.linkedCells() {
+                if let neighborDist = cells[neighbor.id], let currentDist = cells[current.id] {
+                    if neighborDist < currentDist { // if neighbor of current cell is closer to the root
+                        breadcrumbs.setDistanceFromRootToCell(cell: neighbor, distance: neighborDist)
+                        current = neighbor
+                        break
+                    }
+                }
+            }
         }
-        
+        completion(breadcrumbs)
     }
     
 }

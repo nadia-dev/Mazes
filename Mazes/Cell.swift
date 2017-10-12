@@ -101,14 +101,14 @@ class Cell : Hashable {
     func distances() -> Distances {
         let distances = Distances(withRoot: self)
         var frontier: [Cell] = [self]
-        while frontier.count > 0 {
-            var newFrontier: [Cell] = []
+        while frontier.count > 0 { // keep looping until there are no more cells in frontier (i.e. all distances are already measured)
+            var newFrontier: [Cell] = [] // will hold all unvisited cells linked to to cell in current frontier
             for cell in frontier {
                 for linked in cell.linkedCells() {
-                    if distances.getDistanceFromRootToCell(cell: linked) == -1 {
+                    if distances.getDistanceFromRootToCell(cell: linked) == -1 { // if cell hasn't been visited yet
                         let updatedDist = distances.getDistanceFromRootToCell(cell: cell) + 1
                         distances.setDistanceFromRootToCell(cell: linked, distance: updatedDist)
-                        newFrontier.append(linked)
+                        newFrontier.append(linked) // add cell to new frontier set
                     }
                 }
             }

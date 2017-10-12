@@ -37,7 +37,17 @@ class ViewController: UIViewController {
             let start = updatedGridConstructor.gridWrapper?[0, 0]
             let distances = start?.distances()
             updatedGridConstructor.distances = distances
+            print("All distances:")
             print(updatedGridConstructor.description())
+            
+            if let goalCell = updatedGridConstructor.currentGrid()?[rows-1][0] {
+                distances?.pathToGoal(goal: goalCell, completion: { (distancesToGoal) in
+                    updatedGridConstructor.distances = distancesToGoal
+                    print("Path to southwest corner:")
+                    print(updatedGridConstructor.description())
+                })
+            }
+            
             self.gridConstructor = updatedGridConstructor
         }
     }

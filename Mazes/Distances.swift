@@ -65,17 +65,21 @@ class Distances {
     }
     
     /* Find cell which is furthest from the root and how far away it is */
-//    func max() {
-//        var maxDistance = 0
-//        var maxCell = root
-//        for cell in allCells() {
-//            let dist = cells[cell]
-//            if dist > maxDistance {
-//                maxCell =
-//            }
-//
-//        }
-//
-//    }
+    func max() -> [Cell: Int]? {
+        guard let root = root else {
+            return nil
+        }
+        var maxDistance = 0
+        var maxCell = root
+        for cell in allCells() {
+            if let dist = cells[cell] {
+                if dist > maxDistance {
+                    maxCell = cell
+                    maxDistance = dist
+                }
+            }
+        }
+        return [maxCell: maxDistance]
+    }
     
 }

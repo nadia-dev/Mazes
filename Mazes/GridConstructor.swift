@@ -38,6 +38,10 @@ class GridConstructor {
         return row_count * column_count
     }
     
+    func rowCount() -> Int {
+        return row_count
+    }
+    
     func cellWithId(id: Int) -> Cell? {
         if let currentGrid = currentGrid() {
             for row in currentGrid {

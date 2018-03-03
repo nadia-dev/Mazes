@@ -20,10 +20,12 @@ class ViewController: UIViewController {
     
     private var gridConstructor: DistanceGridConstructor?
     private var cellSide: CGFloat = 0.0
+    private var presentation: Presentation?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         gridConstructor = DistanceGridConstructor(withRows: rows, columns: columns)
+        presentation = Presentation(withGridConstructor: gridConstructor)
         runAlgorithm()
         configureMatrix()
         showCells()
@@ -37,10 +39,14 @@ class ViewController: UIViewController {
             let start = updatedGridConstructor.gridWrapper?[0, 0]
             let distances = start?.distances()
             updatedGridConstructor.distances = distances
-            print("All distances:")
-            print(updatedGridConstructor.description())
+//            print("All distances:")
+//            print(updatedGridConstructor.description())
+            if let distances = presentation?.showAllDijkstraDistances() {
+                print(distances)
+            }
             
             if let goalCell = updatedGridConstructor.currentGrid()?[rows-1][0] {
+                print("Searching for path to goal")
                 distances?.pathToGoal(goal: goalCell, completion: { (distancesToGoal) in
                     updatedGridConstructor.distances = distancesToGoal
                     print("Path from northwest corner to southwest corner:")

@@ -11,6 +11,9 @@
 		053DBECD1F2F425700988200 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053DBECC1F2F425700988200 /* UIViewExtensions.swift */; };
 		055614971F8F09C7007E4BFB /* Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055614961F8F09C7007E4BFB /* Presentation.swift */; };
 		056463301F7824C900C0DDB2 /* DistanceGridConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0564632F1F7824C900C0DDB2 /* DistanceGridConstructor.swift */; };
+		058869B4204A630400D813F1 /* Dijkstra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058869B3204A630400D813F1 /* Dijkstra.swift */; };
+		058869B9204A69B000D813F1 /* PathFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058869B8204A69B000D813F1 /* PathFinder.swift */; };
+		058869BB204A6AFE00D813F1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058869BA204A6AFE00D813F1 /* Constants.swift */; };
 		05A197351F430DAD007326D1 /* Distances.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A197341F430DAD007326D1 /* Distances.swift */; };
 		05CBFDE01F26F7AD003EC66B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CBFDDF1F26F7AD003EC66B /* AppDelegate.swift */; };
 		05CBFDE21F26F7AD003EC66B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CBFDE11F26F7AD003EC66B /* ViewController.swift */; };
@@ -46,6 +49,9 @@
 		053DBECC1F2F425700988200 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		055614961F8F09C7007E4BFB /* Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentation.swift; sourceTree = "<group>"; };
 		0564632F1F7824C900C0DDB2 /* DistanceGridConstructor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceGridConstructor.swift; sourceTree = "<group>"; };
+		058869B3204A630400D813F1 /* Dijkstra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dijkstra.swift; sourceTree = "<group>"; };
+		058869B8204A69B000D813F1 /* PathFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathFinder.swift; sourceTree = "<group>"; };
+		058869BA204A6AFE00D813F1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		05A197341F430DAD007326D1 /* Distances.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Distances.swift; sourceTree = "<group>"; };
 		05CBFDDC1F26F7AD003EC66B /* Mazes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mazes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05CBFDDF1F26F7AD003EC66B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +102,34 @@
 			name = Logic;
 			sourceTree = "<group>";
 		};
+		058869B5204A68EF00D813F1 /* MazeCreation */ = {
+			isa = PBXGroup;
+			children = (
+				05CBFE131F284645003EC66B /* BinaryTree.swift */,
+				05CBFE1A1F287769003EC66B /* Sidewinder.swift */,
+			);
+			name = MazeCreation;
+			sourceTree = "<group>";
+		};
+		058869B6204A691400D813F1 /* PathFinding */ = {
+			isa = PBXGroup;
+			children = (
+				05A197341F430DAD007326D1 /* Distances.swift */,
+				052A85901FB26921000797AA /* LongestPath.swift */,
+				058869B3204A630400D813F1 /* Dijkstra.swift */,
+				058869B8204A69B000D813F1 /* PathFinder.swift */,
+			);
+			name = PathFinding;
+			sourceTree = "<group>";
+		};
+		058869BC204A6B0900D813F1 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				058869BA204A6AFE00D813F1 /* Constants.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		05CBFDD31F26F7AD003EC66B = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +151,7 @@
 		05CBFDDE1F26F7AD003EC66B /* Mazes */ = {
 			isa = PBXGroup;
 			children = (
+				058869BC204A6B0900D813F1 /* Utils */,
 				055614951F8F09AC007E4BFB /* Logic */,
 				05D5AAAD1F2C5CB800456417 /* Views */,
 				05CBFE121F2845FB003EC66B /* Algorithms */,
@@ -176,10 +211,8 @@
 		05CBFE121F2845FB003EC66B /* Algorithms */ = {
 			isa = PBXGroup;
 			children = (
-				05A197341F430DAD007326D1 /* Distances.swift */,
-				05CBFE131F284645003EC66B /* BinaryTree.swift */,
-				05CBFE1A1F287769003EC66B /* Sidewinder.swift */,
-				052A85901FB26921000797AA /* LongestPath.swift */,
+				058869B6204A691400D813F1 /* PathFinding */,
+				058869B5204A68EF00D813F1 /* MazeCreation */,
 			);
 			name = Algorithms;
 			sourceTree = "<group>";
@@ -312,6 +345,7 @@
 				05CBFDE21F26F7AD003EC66B /* ViewController.swift in Sources */,
 				05CBFE031F26FA1E003EC66B /* Cell.swift in Sources */,
 				05CBFE0F1F283E53003EC66B /* GridWrapper.swift in Sources */,
+				058869B4204A630400D813F1 /* Dijkstra.swift in Sources */,
 				052A85911FB26921000797AA /* LongestPath.swift in Sources */,
 				05CBFE141F284645003EC66B /* BinaryTree.swift in Sources */,
 				05CBFDE01F26F7AD003EC66B /* AppDelegate.swift in Sources */,
@@ -319,9 +353,11 @@
 				05CBFE011F26FA13003EC66B /* GridConstructor.swift in Sources */,
 				05A197351F430DAD007326D1 /* Distances.swift in Sources */,
 				05CBFE191F2860BA003EC66B /* ArrayExtensions.swift in Sources */,
+				058869B9204A69B000D813F1 /* PathFinder.swift in Sources */,
 				05CBFE1B1F287769003EC66B /* Sidewinder.swift in Sources */,
 				055614971F8F09C7007E4BFB /* Presentation.swift in Sources */,
 				053DBECD1F2F425700988200 /* UIViewExtensions.swift in Sources */,
+				058869BB204A6AFE00D813F1 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

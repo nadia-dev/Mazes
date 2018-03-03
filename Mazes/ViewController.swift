@@ -13,62 +13,49 @@ class ViewController: UIViewController {
     @IBOutlet weak var mazeContainer: MazeContainer?
     @IBOutlet weak var mazeContainerHeight: NSLayoutConstraint?
     @IBOutlet weak var mazeContainerWidth: NSLayoutConstraint?
-    
-    private var rows: Int = 5
-    private var columns: Int = 5
-    private var offset: CGFloat = 20
-    
-    private var gridConstructor: DistanceGridConstructor?
+
     private var cellSide: CGFloat = 0.0
-    private var presentation: Presentation?
+    private let offset: CGFloat = 20
+    private let algorithm = Dijkstra(withRows: Constants.rows, columns: Constants.columns)
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        gridConstructor = DistanceGridConstructor(withRows: rows, columns: columns)
-        presentation = Presentation(withGridConstructor: gridConstructor)
         runAlgorithm()
         configureMatrix()
         showCells()
     }
     
     private func runAlgorithm() {
-        guard let gridConstructor = gridConstructor else {
+        let presentation = Presentation(withGridConstructor: algorithm.constructor)
+        guard let distances = presentation.showAllDistances() else {
             return
         }
-        if let updatedGridConstructor = SideWinder.on(gridConstructor: gridConstructor) as? DistanceGridConstructor {
-            let start = updatedGridConstructor.gridWrapper?[0, 0]
-            let distances = start?.distances()
-            updatedGridConstructor.distances = distances
-//            print("All distances:")
-//            print(updatedGridConstructor.description())
-            if let distances = presentation?.showAllDijkstraDistances() {
-                print(distances)
-            }
-            
-            if let goalCell = updatedGridConstructor.currentGrid()?[rows-1][0] {
-                print("Searching for path to goal")
-                distances?.pathToGoal(goal: goalCell, completion: { (distancesToGoal) in
-                    updatedGridConstructor.distances = distancesToGoal
+        print("All distances")
+        print(distances)
+        
+        if let goalCell = algorithm.constructor?.currentGrid()?[Constants.rows-1][0] {
+            print("Searching for path to goal")
+            algorithm.constructor?.distances?.pathToGoal(goal: goalCell, completion: { (distancesToGoal) in
+                algorithm.constructor?.distances = distancesToGoal
+                if let description = algorithm.constructor?.description() {
                     print("Path from northwest corner to southwest corner:")
-                    print(updatedGridConstructor.description())
-                })
-            }
-            
-            self.gridConstructor = updatedGridConstructor
+                    print(description)
+                }
+            })
         }
     }
     
     private func configureMatrix() {
         let viewHeight = self.view.frame.height - offset
         let viewWidth = self.view.frame.width - offset
-        cellSide = min(viewWidth/CGFloat(columns), viewHeight/CGFloat(rows))
-        mazeContainerWidth?.constant = cellSide * CGFloat(columns)
-        mazeContainerHeight?.constant = cellSide * CGFloat(rows)
+        cellSide = min(viewWidth/CGFloat(Constants.columns), viewHeight/CGFloat(Constants.rows))
+        mazeContainerWidth?.constant = cellSide * CGFloat(Constants.columns)
+        mazeContainerHeight?.constant = cellSide * CGFloat(Constants.rows)
     }
     
     
     private func showCells() {
-        guard let gridConstructor = gridConstructor else {
+        guard let gridConstructor = algorithm.constructor else {
             return
         }
         gridConstructor.forEachCell { (cell) in

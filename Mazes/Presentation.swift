@@ -25,12 +25,7 @@ class Presentation {
         return start?.distances()
     }()
     
-    func showAllDijkstraDistances() -> String? {
-//        guard let gridConstructor = gridConstructor else {
-//            return nil
-//        }
-//        let start = gridConstructor.gridWrapper?[0, 0]
-//        let distances = start?.distances()
+    func showAllDistances() -> String? {
         gridConstructor?.distances = self.distances
         return gridConstructor?.description()
     }

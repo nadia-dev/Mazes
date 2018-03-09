@@ -30,22 +30,11 @@ class Presentation {
         return gridConstructor?.description()
     }
     
-    func showShortestPath(toGoalCell goalCell: Cell, _ completion: (_ description: String?) -> ()) {
-            distances?.pathToGoal(goal: goalCell, completion: { (distancesToGoal) in
+    func showShortestPath(toGoalCell goalCell: Cell, _ completion: (_ description: String?) -> Void) {
+            distances?.pathToGoal(goal: goalCell, completion: { [unowned self](distancesToGoal) in
                 self.gridConstructor?.distances = distancesToGoal
-//                print("Path from northwest corner to southwest corner:")
-//
-//                print(updatedGridConstructor.description())
-                if let constructor = self.gridConstructor {
-                    completion(constructor.description())
-                } else {
-                    completion(nil)
-                }
-                //completion(self.gridConstructor?.description())
-                //return updatedGridConstructor.description()
+                completion(self.gridConstructor?.description())
             })
     }
-    
-    
-    
+
 }

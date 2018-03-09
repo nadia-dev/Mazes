@@ -8,24 +8,22 @@
 
 import Foundation
 
-class LongestPath {
-    
-    private let grid = DistanceGridConstructor(withRows: 5, columns: 5)
-    
-    init() {
-        //self.init()
-        let constructor = BinaryTree.on(gridConstructor: grid)
-        let start = constructor.gridWrapper?[0, 0] // chose NW corner as starting cell
-        let distances = start?.distances()
-        let newStartToDistance = distances?.max() // run Dijkstra's algorithm and discover the most distant cell relative to start cell
-        guard let newDistances = newStartToDistance?.keys.first?.distances() as? Distances else {
+class LongestPath: PathFinder {
+
+    init(withRows rows: Int, columns: Int) {
+        super.init()
+        guard let gridConstructor = BinaryTree.on(gridConstructor: DistanceGridConstructor(withRows: rows, columns: columns)) as? DistanceGridConstructor else {
             return
         }
-        let goalToDistance = newDistances.max()
-        if let goal = goalToDistance?.keys.first {
-            newDistances.pathToGoal(goal: goal, completion: { [weak self](distances) in
-                self?.grid.distances = distances
-                //print(self?.grid)
+        let start = gridConstructor.gridWrapper?[0, 0] // chose NW corner as starting cell
+        let distances = start?.distances()
+        let newStartToDistance = distances?.max() // run Dijkstra's algorithm and discover the most distant cell relative to start cell
+        if let newDistances = newStartToDistance?.keys.first?.distances(),
+            let goalToDistance = newDistances.max(),
+            let goal = goalToDistance.keys.first {
+            newDistances.pathToGoal(goal: goal, completion: { (distances) in
+                gridConstructor.distances = distances
+                self.constructor = gridConstructor
             })
         }
     }

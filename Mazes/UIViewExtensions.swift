@@ -8,21 +8,46 @@
 
 import UIKit
 
-extension UIView {
+class CellView: UIView {
     
-    enum Border {
+    private enum Border {
         case left
         case right
         case top
         case bottom
     }
     
-    func addBorder(border: UIView.Border) {
+    private var cell: Cell? {
+        didSet {
+            guard let cell = cell else {
+                return
+            }
+            if cell.north == nil {
+                self.addBorder(border: .top)
+            }
+            if cell.west == nil {
+                self.addBorder(border: .left)
+            }
+            if !cell.isLinked(cell: cell.east) {
+                self.addBorder(border: .right)
+            }
+            if !cell.isLinked(cell: cell.south) {
+                self.addBorder(border: .bottom)
+            }
+        }
+    }
+    
+    class func create(cell: Cell, cellSide: CGFloat, x: CGFloat, y: CGFloat) -> CellView {
+        let cellView = CellView(frame: CGRect(x: x, y: y, width: cellSide+1, height: cellSide+1))
+        cellView.cell = cell
+        return cellView
+    }
+    
+    private func addBorder(border: CellView.Border) {
         self.setBorder(border: border, weight: 2, color: UIColor.black)
     }
     
-    func setBorder(border: UIView.Border, weight: CGFloat, color: UIColor ) {
-        
+    private func setBorder(border: CellView.Border, weight: CGFloat, color: UIColor ) {
         let lineView = UIView()
         addSubview(lineView)
         lineView.backgroundColor = color

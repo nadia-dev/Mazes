@@ -18,7 +18,6 @@ class ViewController: UIViewController {
     private let offset: CGFloat = 20
     private let algorithm = LongestPath(withRows: Constants.rows, columns: Constants.columns)//Dijkstra(withRows: Constants.rows, columns: Constants.columns)
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         runAlgorithm()
@@ -54,7 +53,6 @@ class ViewController: UIViewController {
         mazeContainerHeight?.constant = cellSide * CGFloat(Constants.rows)
     }
     
-    
     private func showCells() {
         guard let gridConstructor = algorithm.constructor else {
             return
@@ -62,21 +60,7 @@ class ViewController: UIViewController {
         gridConstructor.forEachCell { (cell) in
             let x = CGFloat(cell.column) * cellSide
             let y = CGFloat(cell.row) * cellSide
-            let cellView = UIView(frame: CGRect(x: x, y: y, width: cellSide+1, height: cellSide+1))
-            
-            if cell.north == nil {
-                cellView.addBorder(border: .top)
-            }
-            if cell.west == nil {
-                cellView.addBorder(border: .left)
-            }
-            if !cell.isLinked(cell: cell.east) {
-                cellView.addBorder(border: .right)
-            }
-            if !cell.isLinked(cell: cell.south) {
-                cellView.addBorder(border: .bottom)
-            }
-            
+            let cellView = CellView.create(cell: cell, cellSide: cellSide, x: x, y: y)
             mazeContainer?.addSubview(cellView)
         }
     }

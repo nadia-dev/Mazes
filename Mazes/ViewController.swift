@@ -60,7 +60,7 @@ class ViewController: UIViewController {
         gridConstructor.forEachCell { (cell) in
             let x = CGFloat(cell.column) * cellSide
             let y = CGFloat(cell.row) * cellSide
-            let cellView = CellView.create(cell: cell, cellSide: cellSide, x: x, y: y)
+            let cellView = CellView.create(cell: cell, cellSide: cellSide, x: x, y: y, distances: algorithm.constructor?.distances)
             mazeContainer?.addSubview(cellView)
         }
     }

@@ -37,10 +37,34 @@ class CellView: UIView {
         }
     }
     
-    class func create(cell: Cell, cellSide: CGFloat, x: CGFloat, y: CGFloat) -> CellView {
+    private var distances: Distances? {
+        didSet {
+            guard let cell = cell, let distances = distances, let maxes = distances.max() else {
+                return
+            }
+            let distance = distances.getDistanceFromRootToCell(cell: cell)
+            self.backgroundColor = getColor(distance: distance, maxDistances: maxes)
+        }
+    }
+    
+    class func create(cell: Cell, cellSide: CGFloat, x: CGFloat, y: CGFloat, distances: Distances?) -> CellView {
         let cellView = CellView(frame: CGRect(x: x, y: y, width: cellSide+1, height: cellSide+1))
         cellView.cell = cell
+        cellView.distances = distances
         return cellView
+    }
+    
+    private func getColor(distance: Int, maxDistances: [Cell: Int]) -> UIColor? {
+        let firstKey = Array(maxDistances.keys)[0]
+        if let maxDist = maxDistances[firstKey] {
+            print(maxDist, distance)
+            let intensity = (maxDist - distance)/maxDist
+            let dark = CGFloat((255 * intensity))
+            let bright = CGFloat(128 + (127 * intensity))
+            print("instensity: \(intensity)")
+            return UIColor(red: dark, green: bright, blue: dark, alpha: 1)
+        }
+        return nil
     }
     
     private func addBorder(border: CellView.Border) {

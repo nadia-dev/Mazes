@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		052A85911FB26921000797AA /* LongestPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052A85901FB26921000797AA /* LongestPath.swift */; };
-		053DBECD1F2F425700988200 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053DBECC1F2F425700988200 /* UIViewExtensions.swift */; };
+		053DBECD1F2F425700988200 /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053DBECC1F2F425700988200 /* CellView.swift */; };
 		055614971F8F09C7007E4BFB /* Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055614961F8F09C7007E4BFB /* Presentation.swift */; };
 		056463301F7824C900C0DDB2 /* DistanceGridConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0564632F1F7824C900C0DDB2 /* DistanceGridConstructor.swift */; };
 		058869B4204A630400D813F1 /* Dijkstra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058869B3204A630400D813F1 /* Dijkstra.swift */; };
@@ -46,7 +46,7 @@
 
 /* Begin PBXFileReference section */
 		052A85901FB26921000797AA /* LongestPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongestPath.swift; sourceTree = "<group>"; };
-		053DBECC1F2F425700988200 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		053DBECC1F2F425700988200 /* CellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
 		055614961F8F09C7007E4BFB /* Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentation.swift; sourceTree = "<group>"; };
 		0564632F1F7824C900C0DDB2 /* DistanceGridConstructor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceGridConstructor.swift; sourceTree = "<group>"; };
 		058869B3204A630400D813F1 /* Dijkstra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dijkstra.swift; sourceTree = "<group>"; };
@@ -203,7 +203,6 @@
 			children = (
 				05CBFE071F2777AF003EC66B /* Random.swift */,
 				05CBFE181F2860BA003EC66B /* ArrayExtensions.swift */,
-				053DBECC1F2F425700988200 /* UIViewExtensions.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -228,6 +227,7 @@
 		05D5AAAD1F2C5CB800456417 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				053DBECC1F2F425700988200 /* CellView.swift */,
 				05D5AAAE1F2C5CCD00456417 /* MazeContainer.swift */,
 			);
 			name = Views;
@@ -356,7 +356,7 @@
 				058869B9204A69B000D813F1 /* PathFinder.swift in Sources */,
 				05CBFE1B1F287769003EC66B /* Sidewinder.swift in Sources */,
 				055614971F8F09C7007E4BFB /* Presentation.swift in Sources */,
-				053DBECD1F2F425700988200 /* UIViewExtensions.swift in Sources */,
+				053DBECD1F2F425700988200 /* CellView.swift in Sources */,
 				058869BB204A6AFE00D813F1 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

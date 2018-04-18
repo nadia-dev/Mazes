@@ -57,12 +57,10 @@ class CellView: UIView {
     private func getColor(distance: Int, maxDistances: [Cell: Int]) -> UIColor? {
         let firstKey = Array(maxDistances.keys)[0]
         if let maxDist = maxDistances[firstKey] {
-            print(maxDist, distance)
-            let intensity = (maxDist - distance)/maxDist
+            let intensity = Float(maxDist - distance)/Float(maxDist)
             let dark = CGFloat((255 * intensity))
             let bright = CGFloat(128 + (127 * intensity))
-            print("instensity: \(intensity)")
-            return UIColor(red: dark, green: bright, blue: dark, alpha: 1)
+            return UIColor(red: dark/255, green: bright/255, blue: dark/255, alpha: 1)
         }
         return nil
     }

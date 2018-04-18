@@ -20,19 +20,21 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        runAlgorithm()
         configureMatrix()
-        showCells()
+        runAlgorithm()
+        
+        
     }
     
     private func runAlgorithm() {
-        let presentation = Presentation(withGridConstructor: algorithm.constructor)
+        let presentation = Presentation(withGridConstructor: algorithm.constructor, start: algorithm.startCell)
         guard let distances = presentation.showAllDistances() else {
             return
         }
         print("All distances")
         print(distances)
         
+        let originalDistances = algorithm.constructor?.distances
         if let goalCell = algorithm.constructor?.currentGrid()?[Constants.rows-1][0] {
             print("Searching for path to goal")
             algorithm.constructor?.distances?.pathToGoal(goal: goalCell, completion: { (distancesToGoal) in
@@ -43,6 +45,8 @@ class ViewController: UIViewController {
                 }
             })
         }
+        
+        showCells(forDistances: originalDistances)
     }
     
     private func configureMatrix() {
@@ -53,14 +57,11 @@ class ViewController: UIViewController {
         mazeContainerHeight?.constant = cellSide * CGFloat(Constants.rows)
     }
     
-    private func showCells() {
-        guard let gridConstructor = algorithm.constructor else {
-            return
-        }
-        gridConstructor.forEachCell { (cell) in
+    private func showCells(forDistances distances: Distances?) {
+        algorithm.constructor?.forEachCell { (cell) in
             let x = CGFloat(cell.column) * cellSide
             let y = CGFloat(cell.row) * cellSide
-            let cellView = CellView.create(cell: cell, cellSide: cellSide, x: x, y: y, distances: algorithm.constructor?.distances)
+            let cellView = CellView.create(cell: cell, cellSide: cellSide, x: x, y: y, distances: distances)
             mazeContainer?.addSubview(cellView)
         }
     }

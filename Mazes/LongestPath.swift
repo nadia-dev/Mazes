@@ -15,8 +15,8 @@ class LongestPath: PathFinder {
         guard let gridConstructor = BinaryTree.on(gridConstructor: DistanceGridConstructor(withRows: rows, columns: columns)) as? DistanceGridConstructor else {
             return
         }
-        let start = gridConstructor.gridWrapper?[0, 0] // chose NW corner as starting cell
-        let distances = start?.distances()
+        startCell = gridConstructor.gridWrapper?[rows/2, columns/2]
+        let distances = startCell?.distances()
         let newStartToDistance = distances?.max() // run Dijkstra's algorithm and discover the most distant cell relative to start cell
         if let newDistances = newStartToDistance?.keys.first?.distances(),
             let goalToDistance = newDistances.max(),

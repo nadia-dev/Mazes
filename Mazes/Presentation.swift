@@ -11,18 +11,16 @@ import Foundation
 class Presentation {
     
     private var gridConstructor: DistanceGridConstructor?
+    private var startCell: Cell?
     
-    convenience init(withGridConstructor constructor: DistanceGridConstructor?) {
+    convenience init(withGridConstructor constructor: DistanceGridConstructor?, start: Cell?) {
         self.init()
         gridConstructor = constructor
+        startCell = start
     }
     
     lazy var distances: Distances? = {
-        guard let gridConstructor = gridConstructor else {
-            return nil
-        }
-        let start = gridConstructor.gridWrapper?[0, 0]
-        return start?.distances()
+        return startCell?.distances()
     }()
     
     func showAllDistances() -> String? {

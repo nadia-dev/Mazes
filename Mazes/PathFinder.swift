@@ -11,4 +11,5 @@ import Foundation
 class PathFinder {
     
     var constructor: DistanceGridConstructor?
+    var startCell: Cell?
 }

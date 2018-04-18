@@ -22,7 +22,7 @@ class GridConstructor {
         self.row_count = rows
         self.column_count = columns
         // Initialize the grid
-        let grid = prepateGrid()
+        let grid = prepareGrid()
         // Initialize grid wrapper, which allows to use custom subscript
         self.gridWrapper = GridWrapper(withGrid: grid)
         for cell_row in grid {
@@ -56,7 +56,7 @@ class GridConstructor {
     }
     
     /** Setup 2d array of Cell instances **/
-    func prepateGrid() -> [[Cell]] {
+    func prepareGrid() -> [[Cell]] {
         var grid = [[Cell]]()
         var cellId = 0
         for row in 0 ..< row_count {

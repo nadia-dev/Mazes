@@ -9,14 +9,8 @@ import Foundation
 
 class Dijkstra: PathFinder {
 
-    init(withRows rows: Int, columns: Int) {
-        super.init()
-        guard let gridConstructor = BinaryTree.on(gridConstructor: DistanceGridConstructor(withRows: rows, columns: columns)) as? DistanceGridConstructor else {
-            return
-        }
-        startCell = gridConstructor.gridWrapper?[rows/2, columns/2]
-        let distances = startCell?.distances()
-        gridConstructor.distances = distances
-        self.constructor = gridConstructor
+    override init(withRows rows: Int, columns: Int, creationAlgorithmType: CreationAlgorithmType, startCellPositionType: StartCellPositionType) {
+        super.init(withRows: rows, columns: columns, creationAlgorithmType: creationAlgorithmType, startCellPositionType: startCellPositionType)
+        constructor?.distances = startCell?.distances()
     }
 }

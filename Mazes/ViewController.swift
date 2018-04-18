@@ -16,7 +16,7 @@ class ViewController: UIViewController {
 
     private var cellSide: CGFloat = 0.0
     private let offset: CGFloat = 20
-    private let algorithm = LongestPath(withRows: Constants.rows, columns: Constants.columns)//Dijkstra(withRows: Constants.rows, columns: Constants.columns)
+    private let algorithm = LongestPath(withRows: Constants.rows, columns: Constants.columns, creationAlgorithmType: .binaryTree, startCellPositionType: .center)//Dijkstra(withRows: Constants.rows, columns: Constants.columns)
     
     override func viewDidLoad() {
         super.viewDidLoad()

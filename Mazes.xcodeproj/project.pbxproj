@@ -32,6 +32,8 @@
 		05CBFE191F2860BA003EC66B /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CBFE181F2860BA003EC66B /* ArrayExtensions.swift */; };
 		05CBFE1B1F287769003EC66B /* Sidewinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CBFE1A1F287769003EC66B /* Sidewinder.swift */; };
 		05D5AAAF1F2C5CCD00456417 /* MazeContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D5AAAE1F2C5CCD00456417 /* MazeContainer.swift */; };
+		8109B26E208D63CA0015F0AA /* AldousBroder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8109B26D208D63CA0015F0AA /* AldousBroder.swift */; };
+		8109B270208D68430015F0AA /* Wilsons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8109B26F208D68430015F0AA /* Wilsons.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		05CBFE181F2860BA003EC66B /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		05CBFE1A1F287769003EC66B /* Sidewinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sidewinder.swift; sourceTree = "<group>"; };
 		05D5AAAE1F2C5CCD00456417 /* MazeContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MazeContainer.swift; sourceTree = "<group>"; };
+		8109B26D208D63CA0015F0AA /* AldousBroder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AldousBroder.swift; sourceTree = "<group>"; };
+		8109B26F208D68430015F0AA /* Wilsons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wilsons.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,8 @@
 			children = (
 				05CBFE131F284645003EC66B /* BinaryTree.swift */,
 				05CBFE1A1F287769003EC66B /* Sidewinder.swift */,
+				8109B26D208D63CA0015F0AA /* AldousBroder.swift */,
+				8109B26F208D68430015F0AA /* Wilsons.swift */,
 			);
 			name = MazeCreation;
 			sourceTree = "<group>";
@@ -351,9 +357,11 @@
 				05CBFDE01F26F7AD003EC66B /* AppDelegate.swift in Sources */,
 				056463301F7824C900C0DDB2 /* DistanceGridConstructor.swift in Sources */,
 				05CBFE011F26FA13003EC66B /* GridConstructor.swift in Sources */,
+				8109B26E208D63CA0015F0AA /* AldousBroder.swift in Sources */,
 				05A197351F430DAD007326D1 /* Distances.swift in Sources */,
 				05CBFE191F2860BA003EC66B /* ArrayExtensions.swift in Sources */,
 				058869B9204A69B000D813F1 /* PathFinder.swift in Sources */,
+				8109B270208D68430015F0AA /* Wilsons.swift in Sources */,
 				05CBFE1B1F287769003EC66B /* Sidewinder.swift in Sources */,
 				055614971F8F09C7007E4BFB /* Presentation.swift in Sources */,
 				053DBECD1F2F425700988200 /* CellView.swift in Sources */,

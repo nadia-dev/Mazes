@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class BinaryTree {
     
     class func on(gridConstructor: GridConstructor) -> GridConstructor {

@@ -51,7 +51,7 @@ class Distances {
         }
         
         while current != root {
-            for neighbor in current.linkedCells() {
+            for neighbor in current.linkedCells {
                 if let neighborDist = cells[neighbor], let currentDist = cells[current] {
                     if neighborDist < currentDist { // if neighbor of current cell is closer to the root
                         breadcrumbs.setDistanceFromRootToCell(cell: neighbor, distance: neighborDist)

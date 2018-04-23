@@ -85,7 +85,7 @@ class GridConstructor {
     }
     
     /** Access random cell **/
-    func randomCell() -> Cell? {
+    var randomCell: Cell? {
         let row = Random.randomNumber(inRange: 0...row_count-1)
         let col = Random.randomNumber(inRange: 0...column_count-1)
         return gridWrapper?[row, col]

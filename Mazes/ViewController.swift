@@ -16,14 +16,12 @@ class ViewController: UIViewController {
 
     private var cellSide: CGFloat = 0.0
     private let offset: CGFloat = 20
-    private let algorithm = LongestPath(withRows: Constants.rows, columns: Constants.columns, creationAlgorithmType: .binaryTree, startCellPositionType: .center)
+    private let algorithm = LongestPath(withRows: Constants.rows, columns: Constants.columns, creationAlgorithmType: .aldousBroder, startCellPositionType: .center)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureMatrix()
         runAlgorithm()
-        
-        
     }
     
     private func runAlgorithm() {

@@ -11,6 +11,7 @@ import Foundation
 enum CreationAlgorithmType {
     case binaryTree
     case sideWinder
+    case aldousBroder
 }
 
 enum StartCellPositionType {
@@ -29,6 +30,8 @@ class PathFinder {
             constructor = BinaryTree.on(gridConstructor: DistanceGridConstructor(withRows: rows, columns: columns)) as? DistanceGridConstructor
         case .sideWinder:
             constructor = SideWinder.on(gridConstructor: DistanceGridConstructor(withRows: rows, columns: columns)) as? DistanceGridConstructor
+        case .aldousBroder:
+            constructor = AldousBroder.on(gridConstructor: DistanceGridConstructor(withRows: rows, columns: columns)) as? DistanceGridConstructor
         }
         var startX = 0
         var startY = 0

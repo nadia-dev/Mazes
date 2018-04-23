@@ -44,7 +44,7 @@ class Cell : Hashable {
     
     /** Connect current cell with cell parameter **/
     func link(cell: Cell, bidi: Bool = true) {
-        if !linkedCells().contains(cell) {
+        if !linkedCells.contains(cell) {
             links[cell] = true
             if bidi {
                 cell.link(cell: self, bidi: false)
@@ -54,7 +54,7 @@ class Cell : Hashable {
     
     /** Disconnet current cell and parameter cell **/
     func unlink(cell: Cell, bidi: Bool = true) {
-        if linkedCells().contains(cell) {
+        if linkedCells.contains(cell) {
             links.removeValue(forKey: cell)
             if bidi {
                 cell.unlink(cell: self, bidi: false)
@@ -63,21 +63,21 @@ class Cell : Hashable {
     }
     
     /** Query list of ids of cells connected to the current cell **/
-    func linkedCells() -> [Cell] {
+    var linkedCells: [Cell] {
         return Array(links.keys)
     }
     
     /** Is current cell linked to another given cell **/
     func isLinked(cell: Cell?) -> Bool {
         if let cell = cell {
-            return linkedCells().contains(cell)
+            return linkedCells.contains(cell)
         } else {
             return false
         }
     }
     
     /** Query the list of adjoined cells **/
-    func neighborCells() -> [Cell] {
+    var neighborCells: [Cell] {
         var list: [Cell] = []
         if let north = self.north {
             list.append(north)
@@ -101,7 +101,7 @@ class Cell : Hashable {
         while frontier.count > 0 { // keep looping until there are no more cells in frontier (i.e. all distances are already measured)
             var newFrontier: [Cell] = [] // will hold all unvisited cells linked to to cell in current frontier
             for cell in frontier {
-                for linked in cell.linkedCells() {
+                for linked in cell.linkedCells {
                     if distances.getDistanceFromRootToCell(cell: linked) == -1 { // if cell hasn't been visited yet
                         let updatedDist = distances.getDistanceFromRootToCell(cell: cell) + 1
                         distances.setDistanceFromRootToCell(cell: linked, distance: updatedDist)

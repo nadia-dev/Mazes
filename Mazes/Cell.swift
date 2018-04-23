@@ -114,6 +114,10 @@ class Cell : Hashable {
         return distances
     }
 
+    func description() -> String {
+        return String(self.id)
+    }
+
 }
 
 

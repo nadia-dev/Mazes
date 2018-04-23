@@ -10,7 +10,7 @@ import Foundation
 
 class Constants {
     
-    static let side: Int = 25
+    static let side: Int = 2
     static let rows: Int = Constants.side
     static let columns: Int = Constants.side
     

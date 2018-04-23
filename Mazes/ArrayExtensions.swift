@@ -15,3 +15,18 @@ extension Array {
         return self[index]
     }
 }
+
+extension Array where Element: Cell {
+
+    mutating func delete(cell: Element) {
+        self = self.filter { $0.id != cell.id }
+    }
+
+    func description() -> String {
+        var result = ""
+        for i in self {
+            result += String(i.id) + " "
+        }
+        return result
+    }
+}

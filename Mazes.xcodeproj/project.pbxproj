@@ -128,14 +128,6 @@
 			name = PathFinding;
 			sourceTree = "<group>";
 		};
-		058869BC204A6B0900D813F1 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				058869BA204A6AFE00D813F1 /* Constants.swift */,
-			);
-			name = Utils;
-			sourceTree = "<group>";
-		};
 		05CBFDD31F26F7AD003EC66B = {
 			isa = PBXGroup;
 			children = (
@@ -157,7 +149,6 @@
 		05CBFDDE1F26F7AD003EC66B /* Mazes */ = {
 			isa = PBXGroup;
 			children = (
-				058869BC204A6B0900D813F1 /* Utils */,
 				055614951F8F09AC007E4BFB /* Logic */,
 				05D5AAAD1F2C5CB800456417 /* Views */,
 				05CBFE121F2845FB003EC66B /* Algorithms */,
@@ -207,6 +198,7 @@
 		05CBFE091F2777CA003EC66B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				058869BA204A6AFE00D813F1 /* Constants.swift */,
 				05CBFE071F2777AF003EC66B /* Random.swift */,
 				05CBFE181F2860BA003EC66B /* ArrayExtensions.swift */,
 			);

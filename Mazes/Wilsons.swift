@@ -16,32 +16,32 @@ class Wilsons {
             unvisited.append(cell)
         }
         let first = unvisited.randomItem()
-        unvisited = unvisited.filter { $0.id != first.id }
+        print("first: \(first.description())")
+        unvisited.delete(cell: first)
         while unvisited.count != 0 {
             var cell = unvisited.randomItem()
+            print("random cell: \(cell.description())")
             var path = [cell]
+            print("path set to random cell: \(path.description())")
+            print("unvisited cells: \(unvisited.description())")
             while unvisited.contains(cell) {
                 cell = cell.neighborCells.randomItem()
+                print("random neighbor: \(cell.description())")
                 if let position = path.index(of: cell) {
-                    path = Array(path[0..<position])
+                    print("position of random neighbor: \(position)")
+                    path = Array(path.prefix(upTo: position+1))
+                    print("updated path: \(path.description())")
                 } else {
                     path.append(cell)
+                    print("path after neighbor append: \(path.description())")
                 }
             }
-            for i in 0..<path.count - 2
+            for i in 0..<path.count - 2 {
+                path[i].link(cell: path[i+1])
+                unvisited.delete(cell: path[i])
+            }
         }
-//        var cell = gridConstructor.randomCell
-//        var unvisited = gridConstructor.size() - 1
-//        while unvisited > 0 {
-//            if let neighbor = cell?.neighborCells.randomItem() {
-//                if neighbor.linkedCells.count == 0 {
-//                    cell?.link(cell: neighbor)
-//                    unvisited -= 1
-//                }
-//                cell = neighbor
-//            }
-//        }
-//        return gridConstructor
+        return gridConstructor
     }
     
 }

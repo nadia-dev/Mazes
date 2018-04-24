@@ -22,6 +22,16 @@ extension Array where Element: Cell {
         self = self.filter { $0.id != cell.id }
     }
 
+    func randomCellExcept(withId id: Int) -> Cell {
+        let randomCell = self.randomItem()
+        if randomCell.id == id {
+            //redo
+            return randomCellExcept(withId: id)
+        } else {
+            return randomCell
+        }
+    }
+
     func description() -> String {
         var result = ""
         for i in self {

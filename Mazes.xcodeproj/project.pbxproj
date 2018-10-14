@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		052A85911FB26921000797AA /* LongestPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052A85901FB26921000797AA /* LongestPath.swift */; };
+		052DC9F42173F91800D31301 /* MazeBuilder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 052DC9F32173F91800D31301 /* MazeBuilder.framework */; };
+		052DC9F52173F91800D31301 /* MazeBuilder.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 052DC9F32173F91800D31301 /* MazeBuilder.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		053DBECD1F2F425700988200 /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053DBECC1F2F425700988200 /* CellView.swift */; };
 		055614971F8F09C7007E4BFB /* Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055614961F8F09C7007E4BFB /* Presentation.swift */; };
 		056463301F7824C900C0DDB2 /* DistanceGridConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0564632F1F7824C900C0DDB2 /* DistanceGridConstructor.swift */; };
@@ -46,8 +48,24 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		052DC9F62173F91800D31301 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				052DC9F52173F91800D31301 /* MazeBuilder.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		052A85901FB26921000797AA /* LongestPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongestPath.swift; sourceTree = "<group>"; };
+		052DC9E92173F81400D31301 /* MazeBuilder.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MazeBuilder.xcodeproj; path = ../MazeBuilder/MazeBuilder.xcodeproj; sourceTree = "<group>"; };
+		052DC9F32173F91800D31301 /* MazeBuilder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MazeBuilder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		053DBECC1F2F425700988200 /* CellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
 		055614961F8F09C7007E4BFB /* Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentation.swift; sourceTree = "<group>"; };
 		0564632F1F7824C900C0DDB2 /* DistanceGridConstructor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceGridConstructor.swift; sourceTree = "<group>"; };
@@ -85,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				052DC9F42173F91800D31301 /* MazeBuilder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +150,8 @@
 		05CBFDD31F26F7AD003EC66B = {
 			isa = PBXGroup;
 			children = (
+				052DC9F32173F91800D31301 /* MazeBuilder.framework */,
+				052DC9E92173F81400D31301 /* MazeBuilder.xcodeproj */,
 				05CBFDDE1F26F7AD003EC66B /* Mazes */,
 				05CBFDF31F26F7AD003EC66B /* MazesTests */,
 				05CBFDDD1F26F7AD003EC66B /* Products */,
@@ -241,6 +262,7 @@
 				05CBFDD81F26F7AD003EC66B /* Sources */,
 				05CBFDD91F26F7AD003EC66B /* Frameworks */,
 				05CBFDDA1F26F7AD003EC66B /* Resources */,
+				052DC9F62173F91800D31301 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -521,6 +543,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 22PYTY33R8;
 				INFOPLIST_FILE = Mazes/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = self.edu.com.Mazes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -535,6 +558,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 22PYTY33R8;
 				INFOPLIST_FILE = Mazes/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = self.edu.com.Mazes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
